@@ -1,4 +1,4 @@
-import React, { type ReactElement, useState } from 'react'
+import React, { type ReactElement, useState, useEffect } from 'react'
 import { fetchAuthorInfo, fetchFakeAuthors, fetchQuote } from './api'
 import QuoteGenerator from './components/QuoteGenerator'
 import Trivia from './components/Trivia'
@@ -12,9 +12,14 @@ function App (): ReactElement {
   const [quoteObj, setQuoteObj] = useState<IQuote>({ quote: '', author: '', category: '' })
   const [quoteCategory, setQuoteCategory] = useState('')
 
+  const [fakeAuthors, setFakeAuthors] = useState<string[]>([])
   const [alternatives, setAlternatives] = useState<string[]>([])
   const [feedback, setFeedback] = useState('')
   const [authorInfo, setAuthorInfo] = useState('')
+
+  useEffect(() => {
+    fetchFakeAuthors().then(fakeAuthors => { setFakeAuthors(fakeAuthors) }).catch(() => { window.alert('Something went wrong.') })
+  }, [])
 
   const generateTrivia = async (): Promise<void> => {
     setFeedback('')
@@ -24,8 +29,7 @@ function App (): ReactElement {
       const newQuote = await fetchQuote(quoteCategory)
       setQuoteObj(newQuote)
 
-      const fakeAuthors = await fetchFakeAuthors()
-      const authors = [quoteObj.author, ...fakeAuthors].sort(() => Math.random() - 0.5)
+      const authors = [newQuote.author, ...fakeAuthors].sort(() => Math.random() - 0.5)
       setAlternatives(authors)
 
       const info = await fetchAuthorInfo(newQuote.author)
