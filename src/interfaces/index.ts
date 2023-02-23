@@ -19,10 +19,12 @@ export interface ITriviaProps {
   authorInfo: string
   feedback: string
   setFeedback: (feedback: string) => void
+  saveQuote: (event: React.MouseEvent<HTMLButtonElement>, currentQuote: IQuote) => void
 }
 
 export interface IFeedbackProps {
   feedback: string
   authorInfo: string
-  saveQuote: (event: React.MouseEvent<HTMLButtonElement>) => void
+  saveQuote: (event: React.MouseEvent<HTMLButtonElement>, currentQuote: IQuote) => void
+  quote: IQuote
 }
