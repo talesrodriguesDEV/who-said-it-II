@@ -21,7 +21,7 @@ export default function Trivia ({ alternatives, quoteObj, setFeedback }: ITrivia
 
   return (
     <>
-      <p className='my-6 px-10'>{quoteObj.quote}</p>
+      <p className='my-6 px-10'>&#34;{quoteObj.quote}&#34;</p>
       <div className='flex flex-col'>
         {alternatives.map((alternative, index) => (
           <button

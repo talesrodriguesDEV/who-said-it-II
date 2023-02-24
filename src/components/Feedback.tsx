@@ -13,14 +13,13 @@ export default function Feedback ({ quote, feedback }: IFeedbackProps): ReactEle
     fetchAuthorInfo(quote.author).then((info: string) => {
       if (info !== '') setAuthorInfo(`${quote.author}: ${info}`)
       setLoading(false)
-    }).catch(err => {
-      console.log(err)
+    }).catch(_err => {
       setLoading(false)
     })
   }, [])
 
   return (
-    <div className='w-2/3 md:w-1/2 lg:w-1/4 flex flex-col mb-10'>
+    <div className='responsive flex flex-col mb-10'>
       {loading
         ? <Loading />
         : (

@@ -24,8 +24,6 @@ function App (): ReactElement {
   const [favQuotes, setFavQuotes] = useState<IQuote[]>([])
 
   useEffect(() => {
-    // fetchFakeAuthors().then(fakeAuthors => { setFakeAuthors(fakeAuthors) }).catch(() => { window.alert('Something went wrong.') })
-
     const localStorageQuotes = localStorage.getItem('fav-quotes')
     if (localStorageQuotes !== null) setFavQuotes(JSON.parse(localStorageQuotes))
   }, [])
@@ -89,7 +87,7 @@ function App (): ReactElement {
         : (
             quoteObj.quote !== '' && (
             <>
-              <button className='button w-2/3 md:w-1/2 lg:w-1/4' onClick={(e) => { saveQuote(e, quoteObj) }}>
+              <button className='button responsive' onClick={(e) => { saveQuote(e, quoteObj) }}>
                 Save quote
               </button>
               <Trivia

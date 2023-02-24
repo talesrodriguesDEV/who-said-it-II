@@ -4,7 +4,7 @@ import { type IQuoteGeneratorProps } from '../interfaces'
 
 export default function QuoteGenerator ({ generateTrivia, setQuoteCategory }: IQuoteGeneratorProps): ReactElement {
   return (
-    <div className='flex flex-col w-2/3 md:w-1/2 lg:w-1/4 mb-4'>
+    <div className='flex flex-col responsive mb-4'>
       <select className='p-2 rounded-lg  mb-4 bg-white border' onChange={({ target }) => { setQuoteCategory(target.value) }}>
         <option value=''>Any keyword</option>
         {quoteCategories.map((category, index) => (
