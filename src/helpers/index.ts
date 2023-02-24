@@ -1,6 +1,5 @@
-export function generateRandomTwoLetters (): string {
-  const randomizer1 = Math.floor(Math.random() * (91 - 65) + 65)
-  const randomizer2 = Math.floor(Math.random() * (91 - 65) + 65)
+import fakeAuthors from '../utils/fakeAuthors'
 
-  return String.fromCharCode(randomizer1, randomizer2)
+export function generateRandomFakeAuthors (): string[] {
+  return fakeAuthors.sort(() => Math.random() - 0.5).filter((_author, index) => index < 4)
 }

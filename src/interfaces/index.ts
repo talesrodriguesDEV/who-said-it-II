@@ -16,15 +16,16 @@ export interface IQuoteGeneratorProps {
 export interface ITriviaProps {
   alternatives: string[]
   quoteObj: IQuote
-  authorInfo: string
-  feedback: string
   setFeedback: (feedback: string) => void
-  saveQuote: (event: React.MouseEvent<HTMLButtonElement>, currentQuote: IQuote) => void
 }
 
 export interface IFeedbackProps {
   feedback: string
-  authorInfo: string
-  saveQuote: (event: React.MouseEvent<HTMLButtonElement>, currentQuote: IQuote) => void
   quote: IQuote
+}
+
+export interface IFavQuotesProps {
+  quoteObj: IQuote
+  saveQuote: (event: React.MouseEvent<HTMLButtonElement>, currentQuote: IQuote) => void
+  favQuotes: IQuote[]
 }

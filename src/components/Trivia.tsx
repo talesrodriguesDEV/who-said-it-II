@@ -1,7 +1,7 @@
 import React, { useRef, type ReactElement } from 'react'
 import { type ITriviaProps } from '../interfaces'
 
-export default function Trivia ({ alternatives, quoteObj, authorInfo, feedback, setFeedback, saveQuote }: ITriviaProps): ReactElement {
+export default function Trivia ({ alternatives, quoteObj, setFeedback }: ITriviaProps): ReactElement {
   const alternativeButtons = useRef<HTMLButtonElement[]>([])
 
   const handleAnswer = (alternative: string): void => {
@@ -22,10 +22,10 @@ export default function Trivia ({ alternatives, quoteObj, authorInfo, feedback, 
   return (
     <>
       <p className='my-6 px-10'>{quoteObj.quote}</p>
-      <div className='flex flex-col my-4'>
+      <div className='flex flex-col'>
         {alternatives.map((alternative, index) => (
           <button
-            className='button mb-4'
+            className='button my-2'
             ref={button => { if (button != null) alternativeButtons.current[index] = button }}
             key={index}
             onClick={() => { handleAnswer(alternative) }}
