@@ -10,4 +10,4 @@ Feel free to check out also [API Ninjas](https://api-ninjas.com/)
 
 ## Preview
 
-<img width=332 src="./preview/1.jpeg" /> <img width=332 src="./preview/2.jpeg" /> <img width=332 src="./preview/3.jpeg" />
+<img width=300 src="./preview/1.jpeg" /> <img width=300 src="./preview/2.jpeg" /> <img width=300 src="./preview/3.jpeg" />
